@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebServlet(name = "TranslateServlet")
+@WebServlet(name = "TranslateServlet",urlPatterns = "/translate")
 public class TranslateServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String, String> dictionary = new HashMap<>();
