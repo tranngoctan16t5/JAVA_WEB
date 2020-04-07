@@ -1,3 +1,5 @@
+package Bai_tap.Ung_dung_calculator;
+
 public class Calculator {
     public static float calculator(float first_number, float second_number, char operator) {
         switch (operator) {

@@ -7,27 +7,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42a8ca13-4dd8-4f83-a8b1-6f33eeb987ac" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Hien_thi_DS_Khach_hang/lib/jstl-1.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Hien_thi_DS_Khach_hang/src/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Hien_thi_DS_Khach_hang/src/DBUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Hien_thi_DS_Khach_hang/src/DisplayCustomerServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Hien_thi_DS_Khach_hang/web/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Hien_thi_DS_Khach_hang/web/WEB-INF/lib/taglibs-standard-spec-1.2.5.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Hien_thi_DS_Khach_hang/web/cus.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Hien_thi_DS_Khach_hang/web/display_customer.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Hien_thi_DS_Khach_hang/web/img/cuong.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Hien_thi_DS_Khach_hang/web/img/hoa.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Hien_thi_DS_Khach_hang/web/img/hung.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Hien_thi_DS_Khach_hang/web/img/quoc.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Hien_thi_DS_Khach_hang/web/img/tan.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Calculator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Calculator_Servlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/calculator.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Tong_quan_ung_dung_web/Bai_tap/UD_product_discount_calculator/src/DiscountServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Tong_quan_ung_dung_web/Bai_tap/UD_product_discount_calculator/web/demo.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Tong_quan_ung_dung_web/Bai_tap/Tu_dien_don_gian/out/artifacts/Tu_dien_don_gian_war_exploded/WEB-INF/classes/TranslateServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tong_quan_ung_dung_web/Bai_tap/Tu_dien_don_gian/out/artifacts/Tu_dien_don_gian_war_exploded/WEB-INF/classes/TranslateServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Tong_quan_ung_dung_web/Bai_tap/Tu_dien_don_gian/out/production/Tu_dien_don_gian/TranslateServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tong_quan_ung_dung_web/Bai_tap/Tu_dien_don_gian/out/production/Tu_dien_don_gian/TranslateServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Tong_quan_ung_dung_web/Bai_tap/Tu_dien_don_gian/src/TranslateServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tong_quan_ung_dung_web/Bai_tap/Tu_dien_don_gian/src/TranslateServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Spring_Controller/Bai_Tap/SandWich/SandWich.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Spring_Controller/Bai_Tap/calculator/calculator.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Spring_Controller/Bai_Tap/calculator/src/main/java/controllers/Calculator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Spring_Controller/Bai_Tap/calculator/target/calculator/WEB-INF/classes/controllers/Calculator.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Spring_Controller/Thuc_hanh/Thuc_hanh.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Tong_quan_Spring_MVC/.idea/Tong_quan_Spring_MVC.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hien_thi_DS_Khach_hang/src/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Hien_thi_DS_Khach_hang/src/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hien_thi_DS_Khach_hang/src/DBUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Hien_thi_DS_Khach_hang/src/DBUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hien_thi_DS_Khach_hang/src/DisplayCustomerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Hien_thi_DS_Khach_hang/src/DisplayCustomerServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Calculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Calculator_Servlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Calculator_Servlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MVC_model/Bai_tap/Ung_dung_quan_ly_khach_hang_ITF/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../MVC_model/Bai_tap/Ung_dung_quan_ly_khach_hang_ITF/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MVC_model/Bai_tap/Ung_dung_quan_ly_khach_hang_ITF/src/Controller/CustomerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../MVC_model/Bai_tap/Ung_dung_quan_ly_khach_hang_ITF/src/Controller/CustomerServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../MVC_model/Bai_tap/Ung_dung_quan_ly_khach_hang_ITF/src/Service/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../MVC_model/Bai_tap/Ung_dung_quan_ly_khach_hang_ITF/src/Service/CustomerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Spring_Controller/Thuc_hanh/spring-email-validation/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Spring_Controller/Thuc_hanh/spring-email-validation/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Tong_quan_Spring_MVC/Bai_tap/UD_Tu_Dien/out/artifacts/UD_Tu_Dien_war_exploded/WEB-INF/classes/controllers/DictionaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tong_quan_Spring_MVC/Bai_tap/UD_Tu_Dien/out/artifacts/UD_Tu_Dien_war_exploded/WEB-INF/classes/controllers/DictionaryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Tong_quan_Spring_MVC/Bai_tap/UD_Tu_Dien/out/production/UD_Tu_Dien/controllers/DictionaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tong_quan_Spring_MVC/Bai_tap/UD_Tu_Dien/out/production/UD_Tu_Dien/controllers/DictionaryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Tong_quan_Spring_MVC/Bai_tap/UD_Tu_Dien/src/controllers/DictionaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tong_quan_Spring_MVC/Bai_tap/UD_Tu_Dien/src/controllers/DictionaryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Tong_quan_Spring_MVC/Bai_tap/UD_Tu_Dien/web/index.jsp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +54,13 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="D:/CodeGym/C0120G1/Module2_web" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -149,11 +154,6 @@
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
             </expand>
             <select />
           </treeState>
@@ -172,6 +172,8 @@
       <option name="presentableId" value="Default" />
       <updated>1585649284331</updated>
       <workItem from="1585649293683" duration="311000" />
+      <workItem from="1586146925208" duration="3747000" />
+      <workItem from="1586219004717" duration="416000" />
     </task>
     <servers />
   </component>

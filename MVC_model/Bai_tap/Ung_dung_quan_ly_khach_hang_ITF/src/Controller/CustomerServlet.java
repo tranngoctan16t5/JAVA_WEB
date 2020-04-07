@@ -1,5 +1,6 @@
 package Controller;
 
+import Service.CustomerService;
 import Model.Customer;
 import Service.CustomerService;
 import Service.CustomerServiceImpl;
@@ -15,7 +16,7 @@ import java.util.List;
 
 @WebServlet(name = "CustomerServlet", urlPatterns = "/customers")
 public class CustomerServlet extends HttpServlet {
-    private CustomerService customerService = new CustomerServiceImpl();
+    private CustomerService customerService = (CustomerService) new CustomerServiceImpl();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
