@@ -5,11 +5,14 @@ import com.codegym.crud_customer.model.Province;
 import com.codegym.crud_customer.service.CustomerService;
 import com.codegym.crud_customer.service.ProvinceService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class CustomerController {
@@ -23,10 +26,15 @@ public class CustomerController {
         return provinceService.findAll();
     }
     @GetMapping("/customers")
-    public ModelAndView listCustomers(){
-        Iterable<Customer> customers=customerService.findAll();
-        ModelAndView modelAndView=new ModelAndView("/customer/list");
-        modelAndView.addObject("customers",customers);
+    public ModelAndView listCustomers(@RequestParam("s") Optional<String> s, Pageable pageable){
+        Page<Customer> customers;
+        if(s.isPresent()){
+            customers = customerService.findAllByFirstNameContaining(s.get(), pageable);
+        } else {
+            customers = customerService.findAll(pageable);
+        }
+        ModelAndView modelAndView = new ModelAndView("/customer/list");
+        modelAndView.addObject("customers", customers);
         return modelAndView;
     }
     @GetMapping("/create-customer")

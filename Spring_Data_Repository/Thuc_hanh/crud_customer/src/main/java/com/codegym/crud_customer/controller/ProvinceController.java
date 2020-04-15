@@ -1,6 +1,8 @@
 package com.codegym.crud_customer.controller;
 
+import com.codegym.crud_customer.model.Customer;
 import com.codegym.crud_customer.model.Province;
+import com.codegym.crud_customer.service.CustomerService;
 import com.codegym.crud_customer.service.ProvinceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class ProvinceController {
     @Autowired
     private ProvinceService provinceService;
+    @Autowired
+    private CustomerService customerService;
     @GetMapping("/provinces")
     public ModelAndView listProvinces(){
         Iterable<Province> provinces=provinceService.findAll();
@@ -61,5 +65,20 @@ public class ProvinceController {
         modelAndView.addObject("province",province);
         return modelAndView;
     }
+    @GetMapping("/view-province/{id}")
+    public ModelAndView viewProvince(@PathVariable("id") Long id){
+        Province province = provinceService.findById(id);
+        if(province == null){
+            return new ModelAndView("/error.404");
+        }
 
+        Iterable<Customer> customers = customerService.findAllByProvince(province);
+
+        ModelAndView modelAndView = new ModelAndView("/province/view");
+        modelAndView.addObject("province", province);
+        modelAndView.addObject("customers", customers);
+        return modelAndView;
+    }
 }
+
+
