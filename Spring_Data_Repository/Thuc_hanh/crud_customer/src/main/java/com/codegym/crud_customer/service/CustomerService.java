@@ -19,4 +19,5 @@ public interface CustomerService {
     Iterable<Customer> findAllByProvince(Province province);
 
     Page<Customer> findAllByFirstNameContaining(String firstname, Pageable pageable);
+
 }

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Category list</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="app">
+    <h2>Category</h2>
+    <span>
+        <a href="/blogs">See blog list</a>
+    </span>
+    <span th:if="${status}">
+        <label th:text="${status}"></label>
+    </span>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+        </tr>
+        <tr th:each="cate:${categories}">
+            <td th:text="${cate.getId()}"></td>
+            <td th:text="${cate.getName()}"></td>
+        </tr>
+    </table>
+    <span th:if="${categories.hasPrevious()}">
+        <a th:href="@{'/categories'(page=${categories.number -1})}">Previous</a>
+    </span>
+    <span th:text="${categories.number +1}"></span>/
+    <span th:text="${categories.totalPages}"></span>
+    <span th:if="${categories.hasNext()}">
+        <a th:href="@{'/categories'(page=${categories.number +1})}">Next</a>
+    </span>
+    <br/>
+    <span>
+        <a href="/category-create">Create new category</a>
+    </span>
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping</title>
+</head>
+<body>
+<div class="app">
+    <h2>Picking up some garbage to buy</h2>
+    <div class="cart">
+        <div th:text="${count}"></div>
+        <a th:href="@{/cart}" >Xem gio hang</a>
+    </div>
+    <ul>
+        <li th:each="p:${products}">
+            <div class="product">
+                <a th:href="@{/product-details/{id}(id=${p.getId()})}" href="#">
+                    <div class="product-img">
+                        <img th:src="${p.getImgUrl()}" src="" alt="product_img">
+                    </div>
+                    <div class="product-information">
+                        <div th:text="${p.getMaSp()}"></div>
+                        <div th:text="${p.getProductName()}"></div>
+                        <div th:text="${p.getPrice()}"></div>
+                    </div>
+                    <form th:action="@{/product-buy}">
+                        <input name="id" th:value="${p.getId()}" type="hidden"/>
+                        <input value="Buy" type="submit"/>
+                    </form>
+                </a>
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create New Customer</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<!--    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />-->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+    <script>
+        $(document).ready(
+            function () {
+                $("#datepicker").datepicker({
+                    dateFormat: 'dd/mm/yy',
+                    changeMonth: true, //Tùy chọn này cho phép người dùng chọn tháng
+                    changeYear: true //Tùy chọn này cho phép người dùng lựa chọn từ phạm vi năm
+                });
+            }
+        );
+    </script>
+
+
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-font-smoothing: antialiased;
+            -o-font-smoothing: antialiased;
+            font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        body {
+            font-family: "Roboto", Helvetica, Arial, sans-serif;
+            font-weight: 100;
+            font-size: 12px;
+            line-height: 30px;
+            color: #777;
+            background: #4CAF50;
+            /*background-image: url('image/furama_logo.jpg');*/
+            /*background-repeat: no-repeat;*/
+            /*background-size: 100% 100%;*/
+
+            /*background-attachment: fixed;*/
+        }
+
+        .container {
+            max-width: 400px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        #contact input[type="text"],
+        #contact input[type="email"],
+        #contact input[type="tel"],
+        #contact input[type="url"],
+        #contact textarea,
+        #contact button[type="submit"] {
+            font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+        }
+
+        #contact {
+            background: #F9F9F9;
+            padding: 25px;
+            margin: 150px 0;
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+        }
+
+        #contact h3 {
+            display: block;
+            font-size: 30px;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+
+        #contact h4 {
+            margin: 5px 0 15px;
+            display: block;
+            font-size: 13px;
+            font-weight: 400;
+        }
+
+        fieldset {
+            border: medium none !important;
+            margin: 0 0 10px;
+            min-width: 100%;
+            padding: 0;
+            width: 100%;
+        }
+
+        #contact input[type="text"],
+        #contact input[type="email"],
+        #contact input[type="tel"],
+        #contact input[type="url"],
+        #contact textarea {
+            width: 100%;
+            border: 1px solid #ccc;
+            background: #FFF;
+            margin: 0 0 5px;
+            padding: 10px;
+        }
+
+        #contact input[type="text"]:hover,
+        #contact input[type="email"]:hover,
+            /*#contact input[type="tel"]:hover,*/
+            /*#contact input[type="url"]:hover,*/
+        #contact textarea:hover {
+            -webkit-transition: border-color 0.3s ease-in-out;
+            -moz-transition: border-color 0.3s ease-in-out;
+            transition: border-color 0.3s ease-in-out;
+            border: 1px solid #aaa;
+        }
+
+        #contact textarea {
+            height: 100px;
+            max-width: 100%;
+            resize: none;
+        }
+
+        #contact {
+            position: relative;
+        }
+
+        #contact button[type="submit"] {
+            cursor: pointer;
+            width: 100%;
+            border: none;
+            background: #4CAF50;
+            color: #FFF;
+            margin: 0 0 5px;
+            padding: 10px;
+            font-size: 15px;
+        }
+
+        #contact button[type="submit"]:hover {
+            background: #43A047;
+            -webkit-transition: background 0.3s ease-in-out;
+            -moz-transition: background 0.3s ease-in-out;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        #contact button[type="submit"]:active {
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .copyright {
+            text-align: center;
+        }
+
+        #contact input:focus,
+        #contact textarea:focus {
+            outline: 0;
+            border: 1px solid #aaa;
+        }
+
+        ::-webkit-input-placeholder {
+            color: #888;
+        }
+
+        :-moz-placeholder {
+            color: #888;
+        }
+
+        ::-moz-placeholder {
+            color: #888;
+        }
+
+        :-ms-input-placeholder {
+            color: #888;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <form id="contact" action="/create-customer" method="post" th:object="${customer}">
+        <h3>Create New Customer</h3>
+        <p style="color: red;" th:if="${#fields.hasErrors('id')}" th:errors="*{id}">dsadsd</p>
+        <fieldset>
+            <input placeholder="Enter Id " type="text" th:field="*{id}" tabindex="1" required autofocus>
+        </fieldset>
+        <fieldset>
+            <input placeholder="Enter Address " type="text" th:field="*{address}" tabindex="2" required>
+        </fieldset>
+        <p style="color: red;" th:if="${#fields.hasErrors()}" th:errors="*{birthDay}"></p>
+        <fieldset>
+            <input placeholder="Enter Birthday " id="datepicker"  type="text" th:field="*{birthDay}" tabindex="3"
+                   required>
+        </fieldset>
+        <p style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{email}"></p>
+        <fieldset>
+            <input placeholder="Enter Email" type="text" th:field="*{email}" tabindex="4" required>
+        </fieldset>
+        <p style="color: red;" th:if="${#fields.hasErrors()}" th:errors="*{idCard}"></p>
+        <fieldset>
+            <input placeholder="Enter Id Card" type="text" th:field="*{idCard}" tabindex="5" required>
+        </fieldset>
+        <fieldset>
+            <input placeholder="Enter Name " type="text" th:field="*{name}" tabindex="6" required autofocus>
+        </fieldset>
+        <p style="color: red;" th:if="${#fields.hasErrors()}" th:errors="*{phoneNumber}"></p>
+        <fieldset>
+            <input placeholder="Enter Phone Number" type="text" th:field="*{phoneNumber}" tabindex="7" required>
+        </fieldset>
+        <div class="form-row align-items-center">
+            <div class="col-auto my-1">
+                <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+                <select class="custom-select mr-sm-2" th:field="*{categoryCustomer}" id="inlineFormCustomSelect">
+                    <option th:each="p : ${category_customer}" th:value="${p.id}" th:text="${p.name}"></option>
+                </select>
+            </div>
+        </div>
+        <fieldset>
+            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+        </fieldset>
+
+        <div class="alert alert-danger" role="alert">
+            <th:block th:if="${message}">
+                <p th:text="${message}"></p>
+            </th:block>
+        </div>
+
+        <p class="copyright">Designed by Ngoc Tan </p>
+        <a href="/home" style="position: absolute;left: 121px;top: 628px;">
+            <button type="button" class="btn btn-warning">Back To Home</button>
+        </a>
+    </form>
+
+</div>
+<!--<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"-->
+<!--        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"-->
+<!--        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"-->
+<!--        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"-->
+<!--        crossorigin="anonymous"></script>-->
+</body>
+</html>

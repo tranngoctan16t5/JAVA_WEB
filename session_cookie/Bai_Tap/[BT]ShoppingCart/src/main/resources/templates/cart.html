@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="cart">
+    <a href="/product-list">Back</a>
+    <ul>
+        <li th:text="${count}"></li>
+        <li th:each="p:${cart.findAll()}">
+            <div class="product-img">
+                <img th:src="${p.getImgUrl()}" src="" alt="">
+            </div>
+            <div class="product-information">
+                <span th:text="${p.getMaSp()}">Ma sp: </span>
+                <span th:text="${p.getProductName()}"></span>
+                <span th:text="${p.getPrice()}"></span>
+                <div class="quantity-control">
+<!--                    TODO-->
+                    <form th:action="@{/cart/{id}(id=${p.getId()})}" >
+                        <input type="hidden" name="action" value="decrease"/>
+                        <input type="submit" value="Giam"/>
+                    </form>
+                    <span th:text="${proGroup.get(p.getId())}"></span>
+                    <form th:action="@{/cart/{id}(id=${p.getId()})}" >
+                        <input type="hidden" name="action" value="increase"/>
+                        <input type="submit" value="Tang"/>
+                    </form>
+                </div>
+                <h1 th:text="${proGroup.get(p.getId()) * p.getPrice()}"></h1>
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

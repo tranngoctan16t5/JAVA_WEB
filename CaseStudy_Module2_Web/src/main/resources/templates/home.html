@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<style th:fragment="style">
+    #span_top1 {
+        color: #fed189;
+    }
+
+    #span_top2 {
+        color: #00a0df;
+    }
+
+    #bi-1 {
+        color: white;
+        font-size: 30px;
+        position: absolute;
+        left: 1076px;
+    }
+
+    #a-top {
+        margin-left: 41px;
+    }
+
+    #bi-2 {
+        color: white;
+        font-size: 30px;
+        left: 20px;
+        position: absolute;
+        top: 10px;
+    }
+
+    #bi-3 {
+        font-size: 23px;
+        color: white;
+        position: absolute;
+        left: 49em;
+    }
+
+    #bi-4 {
+        color: white;
+        font-size: 27px;
+        position: absolute;
+        left: 43.5em;
+        top: 14px;
+    }
+
+    #a-nav-link {
+        position: absolute;
+        left: 80em;
+    }
+
+    .nav-left {
+
+        background-color: #394a59;
+        width: 16.7%;
+        height: 606px;
+        margin-top: 58px;
+    }
+
+    .list-group-item {
+        background-color: #b4bb42;
+    }
+
+    .list-group-item-action:hover {
+        background-color: #6a8078;
+    }
+
+
+</style>
+<body>
+<div class="menu fixed-top"  th:fragment="menu">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" id="a-top" href="#"><span id="span_top1">ADMIN</span> <span id="span_top2">FURAMA</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <a class="nav-link" id="a-nav-link" href="#">Logout<span class="sr-only">(current)</span></a>
+            <svg class="bi bi-chat-dots" id="bi-4" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                      d="M2.678 11.894a1 1 0 01.287.801 10.97 10.97 0 01-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 01.71-.074A8.06 8.06 0 008 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 01-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 00.244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 01-2.347-.306c-.52.263-1.639.742-3.468 1.105z"
+                      clip-rule="evenodd"/>
+                <path d="M5 8a1 1 0 11-2 0 1 1 0 012 0zm4 0a1 1 0 11-2 0 1 1 0 012 0zm4 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+            </svg>
+            <svg class="bi bi-bell-fill" id="bi-3" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 16a2 2 0 002-2H6a2 2 0 002 2zm.995-14.901a1 1 0 10-1.99 0A5.002 5.002 0 003 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+            </svg>
+            <svg class="bi bi-house-fill" id="bi-2" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                      d="M8 3.293l6 6V13.5a1.5 1.5 0 01-1.5 1.5h-9A1.5 1.5 0 012 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 01.5-.5h1a.5.5 0 01.5.5z"
+                      clip-rule="evenodd"/>
+                <path fill-rule="evenodd"
+                      d="M7.293 1.5a1 1 0 011.414 0l6.647 6.646a.5.5 0 01-.708.708L8 2.207 1.354 8.854a.5.5 0 11-.708-.708L7.293 1.5z"
+                      clip-rule="evenodd"/>
+            </svg>
+            <svg class="bi bi-justify" id="bi-1" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                      d="M2 12.5a.5.5 0 01.5-.5h11a.5.5 0 010 1h-11a.5.5 0 01-.5-.5zm0-3a.5.5 0 01.5-.5h11a.5.5 0 010 1h-11a.5.5 0 01-.5-.5zm0-3a.5.5 0 01.5-.5h11a.5.5 0 010 1h-11a.5.5 0 01-.5-.5zm0-3a.5.5 0 01.5-.5h11a.5.5 0 010 1h-11a.5.5 0 01-.5-.5z"
+                      clip-rule="evenodd"/>
+            </svg>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+</div>
+<!--menu-->
+
+
+<!--nav-left-->
+<div class="nav-left fixed-top" id="nav-fix" th:fragment="nav-left">
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action active">
+            Danh Mục Chức Năng
+        </a>
+        <a th:href="@{/list-customer}" class="list-group-item list-group-item-action">Display List Customer</a>
+        <a th:href="@{/create-customer}" class="list-group-item list-group-item-action">Create New Customer</a>
+        <a th:href="@{/list-service}" class="list-group-item list-group-item-action">Display List Service</a>
+        <a th:href="@{/create-service}" class="list-group-item list-group-item-action">Create New Service</a>
+        <a th:href="@{/create-contract}" class="list-group-item list-group-item-action">Create Contract</a>
+        <a th:href="@{/create-contract-detail}" class="list-group-item list-group-item-action">Create contract Detail</a>
+        <a th:href="@{/customer-using-service}" class="list-group-item list-group-item-action">Display List Customer Using Service</a>
+        <a th:href="@{/history-contract}" class="list-group-item list-group-item-action">History create contract</a>
+        <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+</html>

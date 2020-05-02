@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style th:replace="home :: style"></style>
+    <style>
+        .container {
+            width: 400px;
+            float: right;
+            margin-right: 420px;
+        }
+
+        .nav-left {
+            float: left;
+        }
+
+        .error {
+            color: red;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="header" th:replace="home :: menu"></div>
+<div class="nav-left" th:replace="home :: nav-left"></div>
+
+<!--create-form-->
+<div class="container">
+    <form th:action="@{/create-customer}" method="post" th:object="${customer}">
+        <h1 style="color: chocolate">Creat New Customer</h1>
+        <div class="form-group">
+            <p style="color: red;" th:if="${#fields.hasErrors('id')} " th:errors="*{id}"></p>
+            <label for="exampleInputId">ID Customer</label>
+            <input type="text" th:field="*{id}" class="form-control" id="exampleInputId">
+
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Name</label>
+            <input type="text" th:field="*{fullName}" class="form-control" id="exampleInputEmail1">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputBirthDay1">Birthday</label>
+            <input type="date" th:field="*{birthDay}" class="form-control" id="exampleInputBirthDay1">
+        </div>
+        <div class="form-group">
+            <p class="error" th:if="${#fields.hasErrors('phoneNumber')} " th:errors="*{phoneNumber}"></p>
+            <label for="exampleInputPhoneNumber">Phone Number</label>
+            <input type="text" th:field="*{phoneNumber}" class="form-control" id="exampleInputPhoneNumber">
+        </div>
+        <div class="form-group">
+            <p class="error" th:if="${#fields.hasErrors()} " th:errors="*{email}"></p>
+            <label for="exampleInputEmail">Email</label>
+            <input type="text" th:field="*{email}" class="form-control" id="exampleInputEmail">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputAddress">Address</label>
+            <input type="text" th:field="*{address}" class="form-control" id="exampleInputAddress">
+        </div>
+        <div class="form-group">
+            <p class="error" th:if="${#fields.hasErrors()} " th:errors="*{idCard}"></p>
+            <label for="exampleInputIdCard">Id card</label>
+            <input type="text" th:field="*{idCard}" class="form-control" id="exampleInputIdCard">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputAddress">Gender</label>
+            <select th:field="*{gender}">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputAddress">Type Customer</label>
+            <select th:field="*{typeCustomer}">
+                <option th:each="list:${TypeCustomers}" th:text="${list.getName()}" th:value="${list.getId()}"></option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+</html>

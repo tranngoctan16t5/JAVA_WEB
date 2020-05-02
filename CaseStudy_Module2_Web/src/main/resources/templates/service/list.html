@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style th:replace="home :: style"></style>
+    <style>
+        .container {
+            float: right;
+            width: 70em;
+            margin-top: 75px;
+        }
+
+        .nav-left {
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div class="header" th:replace="home :: menu"></div>
+<div class="nav-left" th:replace="home :: nav-left"></div>
+<div class="container">
+    <th:block th:if="${message}">
+        <p style="color: red" th:text="${message}"></p>
+    </th:block>
+<!--    <div class="toast" data-autohide="false" th:if="${message}">-->
+<!--        <div class="toast-header">-->
+<!--            <strong class="mr-auto text-primary">Message</strong>-->
+<!--            <small class="text-muted">1 second ago</small>-->
+<!--            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>-->
+<!--        </div>-->
+<!--        <div class="toast-body" th:text="${message}">-->
+<!--        </div>-->
+<!--    </div>-->
+    <table class="table table-hover table-dark">
+        <thead>
+
+        <tr>
+            <th scope="col">Area</th>
+            <th scope="col">Floor Amount</th>
+            <th scope="col">Free Accompany Service</th>
+            <th scope="col">Maximum People</th>
+            <th scope="col">Other Convenience Description</th>
+            <th scope="col">Rent Cost</th>
+            <th scope="col">Room Standard</th>
+            <th scope="col">Status</th>
+            <th scope="col">Rent Type</th>
+            <th scope="col">Service Type</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="ser:${services}">
+            <td th:text="${ser.getArea()}"></td>
+            <td th:text="${ser.getFloorAmount()}"></td>
+            <td th:text="${ser.getFreeAccompanyService()}"></td>
+            <td th:text="${ser.getMaximumPeople()}"></td>
+            <td th:text="${ser.getOtherConvenienceDescription()}"></td>
+            <td th:text="${ser.getRentCost()}"></td>
+            <td th:text="${ser.getRoomStandard()}"></td>
+            <td th:text="${ser.getStatus()}"></td>
+            <td th:text="${ser.getRentType().getName()}"></td>
+            <td th:text="${ser.getServiceType().getName()}"></td>
+            <td><a th:href="@{/edit-service/{id}(id=${ser.getId()})}">Edit</a></td>
+            <td>
+                <form th:action="@{/delete-service/{id}(id=${ser.getId()})}">
+                    <input type="submit" value="Delete" style="border-radius: 3px;background-color: #eb4d0f;
+                border: #dddddd;color: #dddddd;height: 30px" />
+                </form>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation example" id="nav-paging">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" th:href="@{'/list-service'(page=${services.number - 1})}"
+                                     th:if="${services.hasPrevious()}">Previous</a></li>
+            <th:block th:each="i: ${#numbers.sequence(0, services.totalPages - 1)}">
+                <li class="page-item"><a class="page-link"
+                                         th:href="@{/list-service(page=${i},size=${services.size})}">[[${i}+1]]</a>
+                </li>
+            </th:block>
+            <li class="page-item"><a class="page-link" th:href="@{'/list-service'(page=${services.number + 1})}"
+                                     th:if="${services.hasNext()}">Next</a></li>
+        </ul>
+    </nav>
+    <div class="search" >
+        <form th:action="@{/service-search}">
+            <input type="text" class="form-control" placeholder="Enter server name" name="serviceName"/>
+            <button class="btn btn-danger" type="submit">Search</button>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>

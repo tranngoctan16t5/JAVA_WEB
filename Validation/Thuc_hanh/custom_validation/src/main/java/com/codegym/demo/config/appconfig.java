@@ -16,7 +16,7 @@ public class appconfig implements WebMvcConfigurer {
         messageSource.setBasename("classpath:messages");
         messageSource.setDefaultEncoding("UTF-8");
         return messageSource;
-    }
+}
     @Bean
     public LocalValidatorFactoryBean getValidator(){
         LocalValidatorFactoryBean bean=new LocalValidatorFactoryBean();

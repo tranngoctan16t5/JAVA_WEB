@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style th:replace="home :: style"></style>
+    <style>
+        .container {
+            float: right;
+            width: 70em;
+            margin-top: 75px;
+        }
+
+        .nav-left {
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div class="header" th:replace="home :: menu"></div>
+<div class="nav-left" th:replace="home :: nav-left"></div>
+
+<!--list-Customer-->
+<h1>Edit Customer</h1>
+<div class="container">
+    <th:block th:if="${message}">
+        <p style="color: red" th:text="${message}"></p>
+    </th:block>
+    <form action="/edit-customer" method="post" th:object="${customer}">
+        <table class="table table-sm">
+            <input type="hidden" th:field="*{id}">
+
+            <tbody>
+            <tr>
+                <th scope="row">Name</th>
+                <td><input type="text" th:field="*{fullName}"></td>
+            </tr>
+            <tr>
+                <th scope="row">BirthDay</th>
+                <td><input type="date" th:field="*{birthDay}"></td>
+            </tr>
+            <tr>
+                <th scope="row">Name</th>
+                <td>
+                    <select th:field="*{gender}">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Id Card</th>
+                <td><input type="text" th:field="*{idCard}"></td>
+            </tr>
+            <tr>
+                <th scope="row">Phone Number</th>
+                <td><input type="text" th:field="*{phoneNumber}"></td>
+            </tr>
+            <tr>
+                <th scope="row">Email</th>
+                <td><input type="text" th:field="*{email}"></td>
+            </tr>
+            <tr>
+                <th scope="row">Type Customer</th>
+                <td>
+                    <select th:field="*{typeCustomer}">
+                        <option th:each="list:${TypeCustomers}" th:text="${list.getName()}" th:value="${list.getId()}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Address</th>
+                <td><input type="text" th:field="*{address}"></td>
+            </tr>
+
+            </tbody>
+        </table>
+        <button type="submit" class="btn btn-primary">Edit Customer</button>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

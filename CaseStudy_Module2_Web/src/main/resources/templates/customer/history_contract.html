@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="contract-history" style="color: brown">
+    <strong>Contract history</strong>
+    <div th:utext="${dateHistoryCreated}"  style="font-size: medium;margin: 1px" th:if="${dateHistoryCreated}"></div>
+</div>
+</body>
+</html>

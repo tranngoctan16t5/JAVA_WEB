@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+<h3>New user</h3>
+<div class="app">
+    <form action="/users">
+        <input type="submit" value="Return"/>
+    </form>
+    <form action="/users" method="post">
+        <table th:object="${user}">
+            <tr>
+                <td>
+                    <label>First name: </label>
+                </td>
+                <td>
+                    <input type="text" th:field="*{firstName}"/>
+                </td>
+            </tr>
+            <tr th:if="${#fields.hasErrors('firstName')}" th:each="e:${#fields.errors('firstName')}">
+                <td th:text="${e}"></td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Last name: </label>
+                </td>
+                <td>
+                    <input type="text" th:field="*{lastName}"/>
+                </td>
+            </tr>
+            <tr th:if="${#fields.hasErrors('lastName')}" th:each="e:${#fields.errors('lastName')}">
+                <td th:text="${e}"></td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Phone number: </label>
+                </td>
+                <td>
+                    <input type="text" th:field="*{phoneNumber}"/>
+                </td>
+            </tr>
+            <tr th:if="${#fields.hasErrors('phoneNumber')}" th:each="e:${#fields.errors('phoneNumber')}">
+                <td th:text="${e}"></td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Age:  </label>
+                </td>
+                <td>
+                    <input type="text" th:field="*{age}"/>
+                </td>
+            </tr>
+            <tr th:each="e:${#fields.errors('age')}" th:if="${#fields.hasErrors('age')}">
+                <td th:text="${e}"></td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Email:  </label>
+                </td>
+                <td>
+                    <input type="text" th:field="*{email}"/>
+                </td>
+            </tr>
+            <tr th:each="e:${#fields.errors('email')}" th:if="${#fields.hasErrors('email')}">
+                <td th:text="${e}"></td>
+            </tr>
+        </table>
+        <input type="submit" value="Register"/>
+    </form>
+</div>
+</body>
+</html>

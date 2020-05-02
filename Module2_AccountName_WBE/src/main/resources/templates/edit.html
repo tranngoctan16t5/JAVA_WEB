@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create New Customer</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<style>
+
+    body{
+        background-image: url("../static/image/anh4.png") ;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-attachment: fixed;
+    }
+    .table{
+        width: 0;
+        margin-left: 41px;
+        margin-top: 27px;
+
+    }
+    .table td{
+        border-top: none;
+    }
+    .table th{
+        border-top: none;
+        color: #cde2cd;
+    }
+    h1{
+        color: #ff8d00;
+        font-family: sans-serif;
+        margin-left: 82px;
+    }
+
+
+</style>
+<body>
+<h1>Edit Customer</h1>
+<th:block th:if="${message}">
+    <p style="color: green;" th:text="${message}">
+
+    </p>
+</th:block>
+<form action="/edit-customer" method="post" th:object="${customer}">
+<table class="table">
+    <tbody>
+    <tr>
+        <th scope="row">Id</th>
+        <td><input type="text" th:field="*{id}"></td>
+
+    </tr>
+    <tr>
+        <th scope="row">Name</th>
+        <td><input type="text" th:field="*{name}"></td>
+
+    </tr>
+    <tr>
+        <th scope="row">Address</th>
+        <td><input type="text" th:field="*{address}"></td>
+
+    </tr>
+    <tr>
+        <th scope="row">Birthday</th>
+        <td><input type="text" th:field="*{birthDay}"></td>
+    </tr>
+    <tr>
+        <th scope="row">Email</th>
+        <td><input type="text" th:field="*{email}"></td>
+    </tr>
+    <tr>
+        <th scope="row">Id Card</th>
+        <td><input type="text" th:field="*{idCard}"></td>
+    </tr>
+    <tr>
+        <th scope="row">Phone Number</th>
+        <td><input type="text" th:field="*{phoneNumber}"></td>
+    </tr>
+
+    <tr>
+        <th scope="row"></th>
+        <td>
+            <div class="form-row align-items-center">
+                <div class="col-auto my-1">
+                    <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+                    <select class="custom-select mr-sm-2" th:field="*{categoryCustomer}" id="inlineFormCustomSelect" >
+                        <option th:each="p : ${category_customer}" th:value="${p.id}"
+                                th:text="${p.name}" th:selected="(${p.id} == *{categoryCustomer.id})"></option>
+                    </select>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row"></th>
+        <td><button type="submit" class="btn btn-primary">Edit Customer</button></td>
+    </tr>
+    </tbody>
+</table>
+</form>
+
+<a href="/list-customer"><button type="button" class="btn btn-warning">Back To Home</button></a>
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+</html>

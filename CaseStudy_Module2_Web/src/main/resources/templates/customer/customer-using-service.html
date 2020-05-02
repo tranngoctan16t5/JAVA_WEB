@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style th:replace="home :: style"></style>
+    <style>
+        .container {
+            float: right;
+            width: 70em;
+            margin-top: 75px;
+        }
+
+        .nav-left {
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div class="header" th:replace="home :: menu"></div>
+<div class="nav-left" th:replace="home :: nav-left"></div>
+
+<!--list-Customer-->
+<div class="container">
+
+    <table class="table table-hover table-dark">
+        <thead>
+
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">BirthDay</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Id Card</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Email</th>
+            <th scope="col">Type Customer</th>
+            <th scope="col">Address</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="cus:${customers}">
+            <td th:text="${cus.getFullName()}"></td>
+            <td th:text="${cus.getBirthDay()}"></td>
+            <td th:text="${cus.getGender()}"></td>
+            <td th:text="${cus.getIdCard()}"></td>
+            <td th:text="${cus.getPhoneNumber()}"></td>
+            <td th:text="${cus.getEmail()}"></td>
+            <td th:text="${cus.getTypeCustomer().getName()}"></td>
+            <td th:text="${cus.getAddress()}"></td>
+            <td><a th:href="@{/edit-customer/{id}(id=${cus.getId()})}">Edit</a></td>
+            <td>
+                <form th:action="@{/delete-customer/{id}(id=${cus.getId()})}">
+                    <input type="submit" value="Delete" style="border-radius: 3px;background-color: #eb4d0f;
+                border: #dddddd;color: #dddddd;height: 30px" />
+                </form>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation example" id="nav-paging">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" th:href="@{'/list-customer'(page=${customers.number - 1})}"
+                                     th:if="${customers.hasPrevious()}">Previous</a></li>
+            <th:block th:each="i: ${#numbers.sequence(0, customers.totalPages - 1)}">
+                <li class="page-item"><a class="page-link"
+                                         th:href="@{/list-customer(page=${i},size=${customers.size})}">[[${i}+1]]</a>
+                </li>
+            </th:block>
+            <li class="page-item"><a class="page-link" th:href="@{'/list-customer'(page=${customers.number + 1})}"
+                                     th:if="${customers.hasNext()}">Next</a></li>
+        </ul>
+    </nav>
+
+
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
